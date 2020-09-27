@@ -1,0 +1,26 @@
+.design{
+    list-style: none;
+}
+.btn1{
+    width: 250px ;
+    padding: 10px;
+    color: white;
+    background-color: orange;
+
+    border: 0px;
+    margin-top: 5px;
+}
+.btn1:hover{
+    color: white;
+}
+.btn11{
+    width: 250px ;
+    padding: 10px;
+    color: white;
+
+    border: 0px;
+  background-color:orangered;
+}
+.btn11:hover{
+    color: white;
+}

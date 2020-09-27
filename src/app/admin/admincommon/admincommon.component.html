@@ -1,0 +1,57 @@
+
+<mat-drawer-container class="matcontainer">        
+         <mat-drawer #drw  id="matdrawer" color="primary" >
+                     <div  style="background-color: brown;height: 64px;text-align: center;color: white;">
+                                   Admin Panel
+                     </div>
+              <a routerLink="cat" class="aa" (click)="drw.toggle()" style="margin-top: 10px;">Cat</a>
+                <br>
+                <a routerLink="subcat" class="aa" (click)="drw.toggle()">SubCat</a>
+                <br>
+                <a routerLink="subsubcat" class="aa" (click)="drw.toggle()">SubSubCat</a>
+                <br>
+                <a routerLink="brand" class="aa" (click)="drw.toggle()">Brand</a>
+                <br>
+                <a routerLink="product" class="aa" (click)="drw.toggle()">Product</a>
+         </mat-drawer>
+         <mat-drawer-content> 
+                <mat-toolbar color="primary">
+                        <i class="fa fa-bars" aria-hidden="true" (click)="drw.toggle()"></i>
+                        &nbsp;
+                     <button mat-raised-button color="primary" [matMenuTriggerFor]="mn">
+                            Orders
+                        </button>
+                        <mat-menu #mn="matMenu">
+                            <button mat-menu-item routerLink="admin/dailyorders">Daily Orders</button>
+                            <button mat-menu-item>Monthly Orders</button>
+                            <button mat-menu-item>Yearly Orders</button>
+                        </mat-menu>
+                        &nbsp;
+                        <button mat-raised-button color="primary" [matMenuTriggerFor]="mn">
+                               Orders
+                           </button>
+                           <mat-menu #mn="matMenu">
+                               <button mat-menu-item routerLink="admin/dailyorders">Daily Orders</button>
+                               <button mat-menu-item>Monthly Orders</button>
+                               <button mat-menu-item>Yearly Orders</button>
+                           </mat-menu>
+                          
+                <button mat-raised-button color="primary" class=" ml-2" routerLink="logout" *ngIf="service.login_check" >Logout</button>
+              </mat-toolbar>
+                 <div class="container">
+                        <div>{{log_message}}</div>
+                        <router-outlet></router-outlet>
+                 </div>
+                 
+
+         </mat-drawer-content>     
+ </mat-drawer-container> 
+ 
+
+
+
+
+
+
+
+

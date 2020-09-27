@@ -1,0 +1,55 @@
+<p>brand works!</p>
+        <div class="container">
+        <mat-form-field style="width: 100%;">
+            <input type="text"  autocomplete="off" [(ngModel)]="txtbrand"  placeholder="Brand Name" matInput >
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="funInsBrand()" color="accent">Insert Brand</button>
+        <br>
+        {{tmp}}
+
+                <table class="table table-striped" style="text-align: center;">
+                    <th>Brand Name</th>
+                    <th>Active</th>
+                    <th>Operation</th>
+                    <tr *ngFor="let brand of data">
+                    <ng-container *ngIf="tmp!=brand._id; else div">
+                                <td>{{brand.brandname}}</td>
+                                <td>
+                                    <span *ngIf="brand.active==1" >Active</span>
+                                    <span *ngIf="brand.active==0">InActive</span>
+                                </td>
+                                <td>
+                                    <button mat-raised-button class="btn btn-success" (click)="update(brand)">
+                                        Update &nbsp; <i class="fa fa-edit"></i></button>
+                                </td>
+                    </ng-container>
+
+
+
+
+
+                    </tr>
+                </table>
+
+               <ng-template #div>
+                   <td>
+                       <input type="text" class="form-control" style="width: 300px;" placeholder="Brand Name"  [(ngModel)]="divName">
+                    </td>
+                    <td>
+                        <select class="form-control" [(ngModel)]="divBrand" style="width: 300px;">
+                            <option value="1">Active</option>
+                            <option value="0">InActive</option>
+                        </select>
+
+                      
+                   </td>
+                   <td>
+                    <input type="button" value="Save" class="btn btn-info" (click)="funBrandSave()" >
+                    &nbsp;&nbsp;
+                    
+                    <input type="button" value="Close" class="btn btn-secondary" (click)="funBrandClose()">
+                    </td>
+                </ng-template> 
+
+</div>        

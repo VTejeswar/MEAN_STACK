@@ -1,0 +1,50 @@
+<!-- <p>slide works!</p>
+
+        <div  style="border: 1px dotted black; padding: 5px;">
+             
+            <div class="divouter " >
+                
+                <div class="inner" id="inn" >
+                    <div class="cartdiv" *ngFor="let x of slider_data" >
+                       <img src="../../../assets/{{x.Image}}" style="width:150px;height: 150px;margin-left: 10px;">
+                       <p style="margin-left: 20px;">{{x.Brand}}</p>
+                    </div>
+                </div>
+        
+            </div>
+        </div> 
+
+            <div id="left">
+                <button  class="btn btn-success " (click)="left()">left</button>
+            </div>
+            <div id="right">
+                <button class="btn btn-success " (click)="right()" >right</button>
+            </div> -->
+            
+
+
+                <div >
+                    <div class="DIVOUTER">
+                        <div class="row">
+                            <div class="col-md-1" id="LEFTICON">
+                                <img src="../../../assets/left.png" style="width: 30px; right: 30px;" (click)="left()">
+                            </div>
+                            <div class="col-md w-120">
+                                <div class="INNER" id="DIVINNER1">
+                                    <div class="CARTDIV" *ngFor="let x of slider_data">
+                                        <img src="../../../assets/{{x.Image}}" style="width:150px;height: 150px;margin-left: 10px;">
+                                        <p style="margin-left: 20px;">{{x.Brand}}</p>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-md-1" id="RIGHTICON">
+                                <img src="../../../assets/right.png" style="width: 30px; right: 30px;" (click)="right()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     
+
+
+        <!-- {{slider_data | json}}  -->   

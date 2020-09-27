@@ -1,0 +1,10 @@
+jwt=require("jsonwebtoken")
+payload={
+    use:"sabrish",
+    city:"gunupur",
+    dist:"rayagada"
+}
+key="@##$%"
+token=jwt.sign(payload,key)
+console.log(token)
+console.log(jwt.decode(token))

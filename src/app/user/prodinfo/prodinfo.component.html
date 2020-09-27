@@ -1,0 +1,96 @@
+<p>prodinfo works!</p>
+<div class="container-fluid ">
+    <div  *ngFor="let xx of prodinfo_data"  class="row ">
+        <div class="col-sm-1 ">
+            <li *ngFor="let img of xx.Image" class="design">
+                <img src="../../../assets/{{img}}" (click)="imgbig=img" 
+                 style="cursor: pointer;" class="img-fluid rounded img-thumbnail" >
+            </li>
+        </div>
+        <div class="col-sm-4 ">
+            <img src="../../../assets/{{imgbig}}"  class="img-fluid" >
+
+        </div>
+    <img src="../../../assets/1598338155811Redmi Note8 Pro.jpg" alt="">
+        <div class="col-sm-6 ">
+            <div class="row">
+                <h3>{{xx.Brand}}</h3>
+             
+            </div>
+          
+   
+        <div class="row ml-1">
+          
+        <div style="width: 50px;text-align: center;border-radius: 5px;background-color: rgb(38, 182, 38);">
+            <span style="color: white;">{{xx.Rating}}</span> 
+           <span class="fa fa-star text-white" style="margin-left: 4px;" ></span> 
+        </div> &nbsp;
+           <span> Ratings & 5,709 Reviews.</span>
+
+        </div>
+        
+           <h4  style="color: green; margin-top:8px;">
+             <strong> <img src="../../../assets/INR.png" style="width: 30px;">{{xx.Newprice}} </strong>
+            </h4>
+            <p style="text-align: justify;" >
+                <!-- [ngStyle]="{'color':'red'}" -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+               Laboriosam eius magni praesentium fuga maxime qui quia
+               quis reiciendis? Quod, et. Magnam consequatur eligendi non
+                rerum, alias dolorem explicabo iste quas.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laboriosam eius magni praesentium fuga maxime qui quia
+                quis reiciendis? Quod, et. Magnam consequatur eligendi non
+                 rerum, alias dolorem explicabo iste quas .
+
+            </p>
+        <span [ngStyle]="{color:xx.Colour,backgroundColor:xx.Colour}" >sbfjh</span>
+
+
+        <h3 style="color:cornflowerblue">Available Offers</h3>
+    <div>
+        <li *ngFor="let offer of all_offers" style="list-style-type: none;">
+        <img src="../../../assets/euro.jpg" style=" width:25px; "   >
+        &nbsp; <strong style="font-style: bold;">Bank offer</strong> &nbsp; {{offer}}
+        <span style="color: blue; cursor: pointer;">T&C</span>
+        </li> 
+    </div>
+
+        <br>
+            <h4><img src="../../../assets/free-shipping.png" style="width: 30px;;" alt="">: <span style="color:green;">Free Shipping Available on This Product</span> </h4>
+               <div>
+                &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;
+                 <span>
+                        <i class="fa fa-map-marker" aria-hidden="true" style="font-size: 20px;" ></i> Deliver Expected by With in 6-7 Days Business Days
+                    </span>     
+                </div> <br>
+                <div  class="row" > 
+                    <div style="width: 90px;" class="ml-5">
+                        <i class="fa fa-repeat" aria-hidden="true" style="font-size: 40px; color:black;"></i>
+                        <br>
+                        <span  style=" width: 40px; ">30 Days Returns & Exchange</span>
+                    </div>
+                    <div  style="width: 90px;" class="ml-4">
+                        <i class="fa fa-id-card-o" aria-hidden="true" style="font-size: 40px; color:black;"></i>
+                        <br>
+                        <span style=" width: 40px; ">No Door Delivery</span>
+                   </div>
+                   <div style="width: 90px;" class="ml-4">
+                    <i class="fa fa-truck" aria-hidden="true" style="font-size: 40px; color:black;"></i> <br>
+                    <span style=" width: 40px; ">By Amazone Delivery</span>
+                   </div>
+                 </div> 
+           <button class="btn1" (click)="funaddtocart(xx)"> <i class="fa fa-shopping-cart"></i> &nbsp; ADD TO CART </button>
+             &nbsp; &nbsp;
+            <button class="btn11" ><i class="fa fa-bolt" aria-hidden="true"></i> &nbsp; BUY NOW</button>
+        </div>   
+    </div>  
+</div>
+{{prodinfo_data | json}}       
+
+
+
+<!-- <li *ngFor="let offer of all_offers">
+
+    {{offer.Offer[1]}}
+</li>    -->

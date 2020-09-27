@@ -1,0 +1,75 @@
+
+
+        <mat-form-field style="width: 100%;">
+                <input type="text"  autocomplete="off" [(ngModel)]="txtcat"  placeholder="Category Name" matInput >
+        </mat-form-field>
+        <br>
+        <button mat-raised-button (click)="funInsCat()" color="white">Insert Category</button>
+   <br>  
+      {{tmp}}
+           <br> <br>
+           <table class="table table-striped" style="text-align: center;">
+                   <th>Category Name</th>
+                   <th>Active Status</th>
+                   <th>Operations</th>
+                <tr *ngFor="let x of data_category | paginate:{itemsPerPage:2,currentPage:cp}" > 
+              
+                        <ng-container *ngIf="tmp!=x._id;else div">
+                        <td >{{x.catname}}</td>
+                        <td> 
+                                <span *ngIf="x.active==1">Active</span>
+                                <span *ngIf="x.active==0">InActive</span>                              
+                        </td>   
+                        <td>
+                             <input type="button" value="Update" (click)="funUpdate(x)" class="btn btn-success">
+                        </td>
+                        </ng-container>
+                </tr>
+                <ng-template #div>
+                        <td> 
+                          <input type="text" class="form-control" [(ngModel)]="divcat" style="width: 200px;">
+                         </td>
+                        <td>
+                                <select class="form-control" [(ngModel)]="drpActive" style="width: 200px;">
+                                        <option value="1">Active</option>
+                                        <option value="0">InActive</option>
+                                </select>
+                        </td>
+                        <td>
+                                <input type="button" value="Save" class="btn btn-info" (click)="funCatSave()" >
+                                &nbsp;&nbsp;
+                                
+                                <input type="button" value="Close" class="btn btn-secondary" (click)="funCatClose()">
+                        </td>
+
+                </ng-template>
+           </table>          
+                        <div style="margin-left: 500px;" >     
+                <pagination-controls (pageChange)="cp=$event"  ></pagination-controls>
+        </div>
+        <!-- ///////////////////////////////////////// -->
+        <!-- <button class="btn btn-primary"  (click)="addSkil()">Add Skill</button> <br> <br>
+        <div *ngFor="let x of skils.controls;index as i">
+                <input [formGroup]="skils.controls[i]">
+                <button (click)="remove(i)">Remove</button>
+        </div> <br><br>
+        <div *ngFor="let x of skils.controls">
+                <ng-container [formGroup]="x">
+                                <input type="text" formControlName="level">
+                                <input type="text" formControlName="name">
+                </ng-container>
+        </div>
+        <input type="text">
+       -->
+        <h1>*</h1>
+                <form [formGroup]="form" (ngSubmit)="Submit()">
+                        <input type="text" formControlName="name" name="name">
+                        <div formArrayName="contact">
+                                <div *ngFor="let x of form.controls.contact.controls;index as i">
+                                <input [formControlName]="i">
+                                </div>
+                        </div>
+                        <button >Sumit</button>
+                </form>
+                <button (click)="add()">Add</button>
+

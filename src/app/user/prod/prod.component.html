@@ -1,0 +1,109 @@
+    <div class="container-fluid   row ml-1 " >
+        <div class="container-block col-lg-2 mt-5 ">
+            <h2 style="border-bottom: 1px solid light;padding-bottom: 5px;">
+                Filters
+            </h2>
+            <div>
+            <h5>PRICE</h5>
+            <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            min="200"
+            max="22000" step="1" value="1" thumbLabel="true" style="width: 100%;margin-top: 5px;"
+             [(ngModel)]="slide_value"
+             >
+            </mat-slider>
+            <button class="btn btn-success" (click)="slides()">Get</button>
+            {{slide_value}}
+          
+            <div class="row " >
+                <select name="" id="" class="form-control" style="width: 100px;margin-left: 8px;">
+                    <option value="">500</option>
+                    <option value="">1000</option>
+                </select>
+                  <p style="margin-left: 8px;">to</p>
+                  <select name="" id="" class="form-control" style="width: 100px;margin-left: 8px;">
+                    <option value="">500</option>
+                    <option value="">1000</option>
+                    <option value="">1500</option>
+                    <option value="">2000</option>
+                </select>
+            </div>
+
+            <div> 
+                <h5 style="margin-top: 27px;">BRAND</h5>
+                <div class=" ">
+                    <i class="fa fa-search" ></i>
+                    <mat-form-field class="example-full-width">
+                        
+                        <input matInput  autocomplete="off" >
+                    </mat-form-field>
+                
+                </div>
+            </div>
+            <div>
+                <h5>Select Brand</h5>
+                <!-- <mat-checkbox class="example-margin"
+                [checked]="allComplete"
+                [indeterminate]="someComplete()"
+                (change)="setAll($event.checked)">
+                </mat-checkbox> -->
+               
+                <mat-checkbox class="example-margin"
+                [checked]="allComplete"> Oppo
+                </mat-checkbox> <br>
+                <mat-checkbox class="example-margin"
+                [checked]="allComplete"> Realme
+                </mat-checkbox><br>
+                <mat-checkbox class="example-margin"
+                [checked]="allComplete"> Redmi 
+                </mat-checkbox><br>
+                <mat-checkbox class="example-margin"
+                [checked]="allComplete"> Nokia
+               </mat-checkbox>
+            </div>
+        </div>
+        </div>
+        <div class="container-block ml-4 col-lg-9 ">
+            <h2>
+                Products:
+            </h2>
+        
+                <div class="container-fluid ">
+                <div style="padding:10px;" class="row">
+                    <div *ngFor="let x of pdata "class="ml-4 mb-2"  >
+                        <div class="prodiv">
+                                <img src="../../../assets/{{x.Image[0]}}"class="img-fluid"
+                                style="height: 300px;width:100%;border-bottom: 2px solid silver;
+                                 padding-bottom: 5px;">
+                                <br>&nbsp; &nbsp;
+                               
+                                <span style="font-family:fantasy;"> {{x.Brand}}</span><br>
+                                <div style="font-weight: bold;" style="overflow: hidden;">&nbsp; &nbsp;
+                                    <span style="color:green"  *ngIf="x.Newprice">    
+                                       {{x.Newprice }}
+                                   </span>
+                                   &nbsp; &nbsp;
+                                   <span *ngIf="x.Oldprice" style="color: red;">
+                                       {{x.Oldprice}}
+                                   </span><br>           &nbsp; &nbsp;                         
+                                   <span class="fa fa-star text-warning" *ngFor="let xy of x.rattingarr">
+                                                                           
+                                   </span>
+                                   <span class="fa fa-star-half text-warning" *ngIf="x.half==1">
+           
+                                   </span>
+                                   <br> <div class="row container">&nbsp; &nbsp;
+                                   <button class="btn btn-info" [routerLink]="['/user/prodinfo',{oid:x._id}]">More</button>&nbsp; &nbsp;
+                                   <button class="btn btn-success"> <span class="fa fa-shopping-cart"></span> Add to Cart</button>
+                               </div>
+                        </div>
+                    </div> 
+                </div>   
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+{{products_data | json}}      
+ 

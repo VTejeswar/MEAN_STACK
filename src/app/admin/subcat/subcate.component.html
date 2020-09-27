@@ -1,0 +1,68 @@
+
+<div class="container">
+
+
+
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label>Subcategory</mat-label>
+        <input type="text" name="txtsubcat" matInput autocomplete="off"  [(ngModel)]="txtsubcat">
+    </mat-form-field>
+    <mat-form-field style="width:100%;" appearance="outline">
+        <mat-label>Select Category</mat-label>
+        <mat-select  [(ngModel)]="drpsubcat">
+            <mat-option *ngFor="let x of cat_data" value={{x._id}}   >
+                {{x.catname}}
+                
+            </mat-option>
+
+        </mat-select>
+    </mat-form-field>
+    <input type="button" value="Insert Subcategory" class="btn btn-info" (click)="InSubCat()">
+
+            {{tmp}}
+        <table class="table table-striped">
+         
+            <th>SUBCATNAME</th>
+     
+            <th>CAT_NAME</th>
+            <th>Operation</th>
+            <tr *ngFor="let subcat of subcat_data  | paginate:{itemsPerPage:2,currentPage:cp}">
+                <ng-container *ngIf="tmp!=subcat._id; else abc" >
+            
+                <td>{{subcat.subcatname}}</td>
+            
+                <td>{{subcat.catdata.catname}}</td>
+                
+                <td>
+                    <button mat-mini-fab color="primary" (click)="Editsubcat(subcat)">
+                        <i class="fa fa-edit" color="white"></i>
+                    </button>
+                </td>  
+            </ng-container>
+            </tr>
+        </table>
+            <ng-template #abc>
+                        <td> 
+                            <input type="text" [(ngModel)]="tsubcat" class="form-control">
+                        </td>
+                        <td>
+                            <select class="form-control" [(ngModel)]="drpcatt">
+                                <option *ngFor="let catdata of cat_data " value="{{catdata._id}}">
+                                    {{catdata.catname}}
+                                </option>
+                            </select>
+                        </td>
+                        <td>
+                            <button mat-mini-fab color="secondary" (click)="Updatesubcat()">
+                                <i class="fa fa-save" color="white"></i>
+                            </button>  &nbsp;&nbsp;
+                            <button mat-mini-fab color="warn" (click)="Cancelsubcat()">
+                                <i class="fa fa-edit" color="white"></i>
+                            </button>
+                        </td>
+            </ng-template>
+</div>
+<div style="margin-left: 500px;" >     
+    <pagination-controls (pageChange)="cp=$event"  ></pagination-controls>
+</div>
+   

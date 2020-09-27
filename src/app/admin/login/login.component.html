@@ -1,0 +1,16 @@
+
+    <div class="container">
+        <form [formGroup]="validation.myform" >
+        <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="uname" name="name">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="text"    matInput autocomplete="off" formControlName="pwd" name="pwd">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="login()">
+            Login
+        </button>
+    </form>
+    </div>    

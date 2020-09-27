@@ -1,0 +1,49 @@
+.divouter {
+    height: 250px;
+    width: 100%;
+   
+    overflow: hidden;
+    margin-left: -50px;
+}
+.cartdiv{
+    float: left;
+
+}
+.inner{
+ width: 120%;
+ position: relative;
+ left: 0px;
+ overflow: hidden;
+}
+
+
+.DIVOUTER{
+    margin-left: -50px;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.CARTDIV{
+    float: left;    
+}
+
+
+.INNER{
+    width: 140%;
+    position: relative;
+    left: 0px;
+
+}
+#LEFTICON,#RIGHTICON{
+    padding-left: 85px;
+    margin-left: -14px;
+    padding-top: 65px;
+    float: left;
+    position: relative;
+    z-index: 100;
+    left: 0;
+
+    border-radius: 2px;
+}

@@ -1,0 +1,105 @@
+<p>produccts works!</p>
+
+<div class="container" class="row">
+<!-- <form method="post" id="frm1" action="http://localhost:1000/productpath/image"
+ enctype="multipart/form-data" [formGroup]="product" (ngSubmit)="funsubmit()"> -->
+     
+ <form method="post" id="frm1" [formGroup]="product" action="http://localhost:1000/productpath/image" 
+    enctype="multipart/form-data" (ngSubmit)="funsubmit()">
+  
+    <input type="text" name="jj" formControlName="Brand" class="form-control " style="width: 1000px;height: 60px;" placeholder="Enter Product"> 
+        <select class="form-control " formControlName="category" style="width: 300px;" [(ngModel)]="drpCat" name="kjd" > 
+            <option value={{cat._id}} *ngFor="let cat of data_category">{{cat.catname}}</option>
+        </select>
+
+        &nbsp; &nbsp; &nbsp;
+        <select class="form-control" style="width: 300px;" formControlName="subcategory" name="kjd" [(ngModel)]="drpSubcat">
+            <ng-container *ngFor="let subcat of subcat_data"  >
+                  <option value={{subcat._id}} *ngIf="drpCat==subcat.catid" >{{subcat.subcatname}}</option>
+            </ng-container>
+        </select>
+        &nbsp; &nbsp; &nbsp; 
+
+
+        <select class="form-control " formControlName="subsubcategory" style="width: 300px;" name="kjd" >
+            <ng-container *ngFor="let sscat of SubSubCatData">
+                <option value={{sscat._id}} *ngIf="drpSubcat==sscat.subcatid" >{{sscat.subsubcatname}}</option>
+            </ng-container>
+        </select>     
+ 
+
+
+          <mat-form-field appearance="outline" class="mt-2 col-lg-6 ">
+            <mat-label>Enter Description</mat-label>
+            <textarea style="height: 20px;" type="text"  formControlName="Description" name="hi" matInput></textarea>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" autocomplete="off" class="mt-2 col-lg-6 ">
+            <mat-label>Select Color</mat-label>
+           <input type="color" multiple = "true" formControlName="Colour" name="hi" matInput >
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width"appearance="outline"  class="mt-2 col-lg-6 ">
+            <mat-label>Enter Rating </mat-label>
+            <input matInput placeholder="Rating" formControlName="Rating" name="hi" >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline" class="mt-2 col-lg-6 ">
+            <mat-label>Enter Offer</mat-label>
+            <input matInput placeholder="Offer" type="text" formControlName="Offer" name="hi">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width"appearance="outline"  class="mt-2 col-lg-6 ">
+            <mat-label>Enter Newprice</mat-label>
+            <input matInput placeholder="Rating" type="number" formControlName="Newprice" name="hi" >
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="outline" class="mt-2 col-lg-6 ">
+             <mat-label>Enter Oldprice</mat-label>
+            <input matInput placeholder="Offer" type="number" formControlName="Oldprice" name="hi">
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width"appearance="outline"  class="mt-2 col-lg-6 ">
+            <mat-label>Enter Size</mat-label>
+            <input matInput placeholder="Rating" type="text" formControlName="Size" name="hi" >
+          </mat-form-field>
+    
+          <mat-form-field class="example-full-width" appearance="outline" class="mt-2 col-lg-6 ">
+            <mat-label>Enter Quantity</mat-label>
+            <input matInput placeholder="Offer" type="number" formControlName="Quantity" name="hi">
+        
+          </mat-form-field>
+              
+
+
+          <div  >
+            <!-- <input type="file" name="f1" formControlName="Image" value="" multiple="true" style="width: 100%;"> -->
+            
+          <input type="file" value=""  multiple="true" style="width: 100%;" name="f1">
+          </div>
+
+        <button mat-raised-button  color="primary" class="mt-4" style="width: 100%;">Add Product</button>
+      </form>
+      </div>  
+
+
+      <h1 class="text-warning text-center mt-5 text-underlined"><u>Product Details</u></h1>
+      <ag-grid-angular [rowData]="ProductData" [columnDefs]="columnDefs" class="ag-theme-alpine"
+       style="height:400px;width: 100%;" rowSelection="multiple">
+  
+      </ag-grid-angular>
+  
+  
+  
+
+<h3 class="text-warning">CAT_DATA</h3>
+{{data_category | json}}    <br>       
+<h3 class="text-success">SUBCAT_DATA</h3>
+{{subcat_data | json}}     <br>
+<h3 class="text-primary">SUBSUBCAT_DATA</h3>
+{{SubSubCatData |json}}       
+
+<h3>PRODUCT DATA</h3>
+{{ProductData | json}}
